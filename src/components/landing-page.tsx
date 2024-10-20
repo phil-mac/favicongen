@@ -2,7 +2,7 @@
 
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
-import { Bot, DollarSign, Globe, Image } from "lucide-react";
+import { Bot, Globe, Image } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
@@ -66,8 +66,8 @@ export function LandingPageComponent() {
                 <Globe className="h-12 w-12 text-stone-900 dark:text-stone-50" />
                 <h2 className="text-xl font-bold">Website Crawling</h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Our AI analyzes your website's design and content to create a
-                  matching favicon.
+                  Our AI analyzes your website&apos;s design and content to
+                  create a matching favicon.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
