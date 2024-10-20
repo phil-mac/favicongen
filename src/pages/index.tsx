@@ -11,7 +11,7 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const hello = api.post.hello.useQuery({ text: "from tRPC" });
+  const { data } = api.website.getAll.useQuery();
 
   const user = useUser();
 
@@ -38,7 +38,9 @@ export default function Home() {
           </h1>
 
           <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+            {data
+              ? data.map((website) => <p key={website.id}>{website.url}</p>)
+              : "Loading tRPC query..."}
           </p>
         </div>
       </main>
