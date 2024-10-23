@@ -22,6 +22,34 @@ model Post {
 model Website {
     id        Int      @id @default(autoincrement())
     url       String
+    userId    String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+
+model CreditBalance {
+    id        Int      @id @default(autoincrement())
+    userId    String   @unique
+    amount    Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
+}
+
+enum TransactionType {
+    PURCHASE
+    USAGE
+}
+
+model CreditTransaction {
+    id              Int             @id @default(autoincrement())
+    userId          String
+    amount          Int
+    transactionType TransactionType
+    description     String?
+    createdAt       DateTime        @default(now())
+    updatedAt       DateTime        @updatedAt
+
+    @@index([userId])
 }

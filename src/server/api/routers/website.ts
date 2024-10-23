@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
 
 export const websiteRouter = createTRPCRouter({
   hello: publicProcedure
@@ -11,12 +11,16 @@ export const websiteRouter = createTRPCRouter({
       };
     }),
 
-  create: publicProcedure
+  create: protectedProcedure
     .input(z.object({ url: z.string().min(1) }))
     .mutation(async ({ ctx, input }) => {
+
+      const userId = ctx.currentUser.userId;
+
       return ctx.db.website.create({
         data: {
           url: input.url,
+          userId
         },
       });
     }),
