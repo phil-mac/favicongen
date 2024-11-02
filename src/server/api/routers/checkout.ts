@@ -4,7 +4,9 @@ import { env } from "~/env.js";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY);
 
-const DOMAIN = env.NODE_ENV === "development" ? "http://localhost:3000" : env.WEBSITE_URL ?? "https://your-default-production-url.com";
+const DOMAIN = env.NODE_ENV === "development" ? "http://localhost:3000" : env.WEBSITE_URL;
+
+const priceId = env.NODE_ENV === "development" ? "price_1QGnu4G2ZrkE2NlrwFZwH0zz" : "price_1QGnuaG2ZrkE2NlrNWKMAZbo";
 
 export const checkoutRouter = createTRPCRouter({
   create: protectedProcedure
@@ -14,7 +16,7 @@ export const checkoutRouter = createTRPCRouter({
       const session = await stripe.checkout.sessions.create({
         line_items: [
           {
-            price: 'price_1QCuvLG2ZrkE2Nlr1Lzc8Ser',
+            price: priceId,
             quantity: 1,
           },
         ],
