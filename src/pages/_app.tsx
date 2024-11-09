@@ -9,6 +9,11 @@ import { ClerkProvider } from "@clerk/nextjs";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ClerkProvider {...pageProps}>
+      <style jsx global>{`
+        :root {
+          --font-geist-sans: ${GeistSans.style.fontFamily};
+        }
+      `}</style>
       <div className={GeistSans.className}>
         <Component {...pageProps} />
       </div>

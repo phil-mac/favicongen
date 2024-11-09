@@ -70,6 +70,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col items-center space-y-4 text-center">
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image className="h-12 w-12 text-stone-900 dark:text-stone-50" />
                   <h2 className="text-xl font-bold">Multiple Formats</h2>
                   <p className="text-gray-500 dark:text-gray-400">
