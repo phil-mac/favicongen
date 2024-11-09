@@ -3,6 +3,7 @@ import { websiteRouter } from "~/server/api/routers/website";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
 import { checkoutRouter } from "~/server/api/routers/checkout";
 import { creditsRouter } from "~/server/api/routers/credits";
+import { faviconRouter } from "./routers/favicon";
 
 /**
  * This is the primary router for your server.
@@ -14,6 +15,7 @@ export const appRouter = createTRPCRouter({
   website: websiteRouter,
   checkout: checkoutRouter,
   credits: creditsRouter,
+  favicon: faviconRouter,
 });
 
 // export type definition of API

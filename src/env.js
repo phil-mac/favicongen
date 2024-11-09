@@ -13,7 +13,8 @@ export const env = createEnv({
       .default("development"),
     STRIPE_SECRET_KEY: z.string(),
     WEBSITE_URL: z.string().url().optional(),
-    STRIPE_WEBHOOK_SECRET: z.string(), // Add this line
+    STRIPE_WEBHOOK_SECRET: z.string(),
+    OPENAI_API_KEY: z.string(),
   },
 
   /**
@@ -34,7 +35,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     WEBSITE_URL: process.env.WEBSITE_URL,
-    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET, // Add this line
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
